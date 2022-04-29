@@ -1,0 +1,90 @@
+@import "../settings";
+
+.item {
+  display: flex;
+  padding: 30px 0;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+  &-pending {
+    box-shadow: inset 0px -2px 0px #307460;
+  }
+  &__text {
+    display: flex;
+    text-align: justify;
+    flex-direction: column;
+    &-title { 
+      color: $primary-title-color;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &-subtitle {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $primary-subtitle-color;
+    }
+  }
+  &__actions {
+    width: 260px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    justify-content: space-between;
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 117px;
+      height: 40px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      appearance: none;
+      &:active {
+        background-color: rgba(#000, 0.2); 
+        border: 1px solid rgba(0, 0, 0, 0.0);
+      }
+    }
+    &-dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      &-show {
+        display: block;
+      }
+      &-item {
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-sizing: border-box;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        width: 160px;
+        height: 30px;
+        &:active {
+          background-color: rgba(#000, 0.2); 
+          border: 1px solid rgba(0, 0, 0, 0.0);
+        }
+      }
+    }
+  }
+}

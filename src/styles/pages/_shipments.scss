@@ -1,0 +1,67 @@
+@import "../settings";
+
+.shipments {
+  min-height: calc(100vh - 188px);
+  padding: 24px 32px;
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-title{
+      font-style: normal;
+      line-height: 36px;
+      font-size: 30px;
+      &-selected {
+        font-weight: 400;
+      }
+      &-unselected {
+        padding: 0 8px;
+        font-weight: 300;
+      }
+    }
+
+    &-actions{
+      width: 388px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-input{
+        width: 240px;
+        height: 40px;
+        font-weight: 400;
+        font-size: 16px;
+        font-style: normal;
+        line-height: 24px;
+        padding-left: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-sizing: border-box;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        background: url("./../../assets/images/search_icon.png") no-repeat scroll 10px 10px;
+        ::placeholder {
+          color: $primary-title-color;
+        }
+      }
+      &-button{
+        background-color: $primary-color;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-sizing: border-box;
+        border-radius: 4px;
+        line-height: 24px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #FFF;
+        width: 132px;
+        height: 40px;
+        &:active{
+          background-color: rgba($primary-color, 0.8);
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+  &__content {
+    padding-top: 50px;
+  }
+}

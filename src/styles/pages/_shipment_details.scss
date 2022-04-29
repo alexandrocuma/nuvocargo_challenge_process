@@ -1,0 +1,10 @@
+.details {
+  min-height: calc(100vh - 188px);
+  padding: 24px 32px;
+  &-title{
+    font-style: normal;
+    line-height: 36px;
+    font-size: 30px;
+    font-weight: 400;
+  }
+}
