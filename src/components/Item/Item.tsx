@@ -1,12 +1,23 @@
 import DetailsIcon from "assets/images/details_icon.png";
 import ExpandIcon from "assets/images/expand_icon.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ItemProps } from "types";
 import { useNavigate } from "react-router-dom";
+
+
 
 export const Item = ({ order_id, technician, technical_check, status, drone, platform }: ItemProps) => {
   const [showMenu, setShowMenu] = useState(false)
   const navigate = useNavigate()
+  const menuRef = useRef<any>(null);
+
+  useEffect(() => {
+    document.addEventListener("click", function(event) {
+      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false)
+      }
+    });
+  }, [showMenu, menuRef]);
 
   return (
     <div className={technical_check === "Pending" ? "item item-pending": "item"}>
@@ -39,17 +50,19 @@ export const Item = ({ order_id, technician, technical_check, status, drone, pla
           Details 
           <img src={DetailsIcon} alt="user_icon" className="navbar__item-icon" />
         </button>
-        <button onClick={() => setShowMenu(!showMenu)} className="item__actions-button">
-          Action 
-          <img src={ExpandIcon} alt="user_icon" className="navbar__item-icon" />
-        </button>
-        <div id="dropdown" className={showMenu? "item__actions-dropdown item__actions-dropdown-show": "item__actions-dropdown"}>
-          <button className="item__actions-dropdown-item">
-            Edit
+        <div ref={menuRef}>
+          <button onClick={() => setShowMenu(!showMenu)} className="item__actions-button">
+            Action 
+            <img src={ExpandIcon} alt="user_icon" className="navbar__item-icon" />
           </button>
-          <button className="item__actions-dropdown-item">
-            Delete
-          </button>
+          <div id="dropdown" className={showMenu? "item__actions-dropdown item__actions-dropdown-show": "item__actions-dropdown"}>
+            <button className="item__actions-dropdown-item">
+              Edit
+            </button>
+            <button className="item__actions-dropdown-item">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
