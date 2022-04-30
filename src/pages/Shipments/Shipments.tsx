@@ -6,9 +6,11 @@ export const Shipments = () => {
   const [openModal, setOpenModal] = useState(false)
   const [shipments, setShipments] = useState<ItemProps[]>([])
 
-  const onSubmit = (values: ItemProps) => {
+  const onSubmit = (values: ItemProps,{ resetForm }: any) => {
     setShipments(prevState => [values, ...prevState])
     localStorage.setItem('nuvocargo_shipments', JSON.stringify([values, ...shipments]))
+    resetForm()
+    setOpenModal(false)
   }
 
   useEffect(() => {
