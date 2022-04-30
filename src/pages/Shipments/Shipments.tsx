@@ -16,7 +16,11 @@ export const Shipments = () => {
   useEffect(() => {
     const items = localStorage.getItem('nuvocargo_shipments')
     if(items) {
-      setShipments(JSON.parse(items))
+      let shipments = JSON.parse(items)
+      setShipments(shipments.map((shipment: ItemProps) => {
+        shipment.technical_check = "Ready"
+        return shipment
+      }))
     }
   }, [])
 
